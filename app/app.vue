@@ -7,3 +7,9 @@
     </NuxtLayout>
   </UApp>
 </template>
+<script setup>
+useSeoMeta({
+  twitterCard: "summary_large_image",
+  robots: "index, follow",
+});
+</script>

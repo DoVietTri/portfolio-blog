@@ -18,7 +18,7 @@ useSeoMeta({
     Welcome to my portfolio! I'm Taylor Do, a frontend developer based in Vietnam. I specialize in creating user-centered digital experiences that are both beautiful and functional
   `,
   ogImage: "/images/family.png",
-  twitterCard: "summary_large_image",
+  twitterImage: "/images/family.png",
 });
 </script>
 

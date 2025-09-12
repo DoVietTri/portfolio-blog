@@ -20,6 +20,12 @@ export default defineNuxtConfig({
         lang: "en",
       },
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      meta: [
+        {
+          name: "google-site-verification",
+          content: "H53WHhkyw3-cxfGW_PlMPJL7Fu7N6izFHr8_qgZoHqQ",
+        },
+      ],
     },
   },
 });
