@@ -1,5 +1,8 @@
 <template>
-  <section class="pb-20 grid grid-cols-1 sm:grid-cols-2 gap-10">
+  <section
+    id="experiences"
+    class="pb-20 grid grid-cols-1 sm:grid-cols-2 gap-10"
+  >
     <div class="col-span-1">
       <USeparator
         as="h3"
@@ -14,9 +17,7 @@
         :transition="{ delay: 0.5 }"
         :in-view-options="{ once: true }"
       >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere ducimus
-        totam maxime eius fuga cumque placeat est eaque? Quo aut tempore dolores
-        atque cumque blanditiis repellat nam debitis commodi officia.
+        {{ props.page.about.description }}
       </Motion>
     </div>
     <div class="col-span-1">
@@ -27,7 +28,7 @@
       />
       <div class="mt-4 flex flex-col gap-6">
         <Motion
-          v-for="(company, index) in companies"
+          v-for="(company, index) in props.page.companies"
           :key="company.name"
           as="div"
           class="flex"
@@ -36,15 +37,17 @@
           :transition="{ delay: 0.4 + 0.2 * index }"
           :in-view-options="{ once: true }"
         >
-          <span>{{ company.date }}</span>
-          <USeparator class="flex-1 px-5" />
-          <span>
+          <span class="text-sm min-w-[130px]">{{ company.date }}</span>
+          <USeparator class="flex-1 px-1 sm:px-5" />
+          <span class="text-sm">
             {{ company.role }} at
-            <NuxtLink to="https://www.sotatek.com/" target="_blank">
-              <ULink as="button" :class="company.addClass">{{
-                company.name
-              }}</ULink>
-            </NuxtLink>
+            <ULink
+              :to="company.link"
+              target="_blank"
+              :class="`cursor-pointer ${company.addClass}`"
+            >
+              {{ company.name }}
+            </ULink>
           </span>
         </Motion>
       </div>
@@ -52,30 +55,12 @@
   </section>
 </template>
 
-<script setup>
-const companies = [
-  {
-    name: "Sotatek JSC",
-    link: "https://www.sotatek.com/",
-    date: "2020 - 2021",
-    role: "Fullstack Developer",
-    addClass: "text-blue-500",
-  },
-  {
-    name: "HBLab JSC",
-    link: "https://hblab.vn/",
-    date: "2020 - 2021",
-    role: "Frontend Developer",
-    addClass: "text-yellow-500",
-  },
-  {
-    name: "Co-well Asia",
-    link: "https://co-well.vn/",
-    date: "2020 - 2021",
-    role: "Intern Developer",
-    addClass: "text-green-500",
-  },
-];
+<script setup lang="ts">
+import type { IndexCollectionItem } from "@nuxt/content";
+
+const props = defineProps<{
+  page: IndexCollectionItem;
+}>();
 </script>
 
 <style lang="scss" scoped></style>

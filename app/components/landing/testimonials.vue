@@ -1,5 +1,5 @@
 <template>
-  <section class="pb-20">
+  <section id="testimonials" class="pb-20">
     <UCarousel
       loop
       dots

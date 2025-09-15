@@ -1,5 +1,8 @@
 <template>
-  <section class="flex flex-col items-center justify-center py-20 sm:pt-40">
+  <section
+    id="hero"
+    class="flex flex-col items-center justify-center py-20 sm:pt-40"
+  >
     <Motion
       :initial="{
         scale: 1.1,
@@ -36,7 +39,7 @@
       }"
       class="text-3xl mt-3 max-w-xl text-center text-white font-bold"
     >
-      Hey, I'm Taylor Do. I'm Frontend Developer
+      {{ props.page.hero.title }}
     </Motion>
     <Motion
       as="h2"
@@ -56,12 +59,12 @@
       }"
       class="mt-8 max-w-xl text-center text-muted"
     >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti deserunt
-      tempore minus ratione, adipisci optio quas animi beatae nisi voluptatibus
-      sunt error fugiat, dolor odio quae, ducimus possimus vel? Beatae.
+      {{ props.page.hero.description }}
     </Motion>
     <div class="mt-4 flex gap-4">
       <Motion
+        v-for="(social, index) in props.page.hero.socials"
+        :key="social.label"
         :initial="{
           scale: 1.1,
           opacity: 0,
@@ -74,51 +77,17 @@
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.3,
+          delay: 0.3 + index * 0.1,
         }"
       >
-        <UIcon name="i-simple-icons-facebook" class="size-8" />
-      </Motion>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)',
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)',
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.4,
-        }"
-      >
-        <UIcon name="i-simple-icons-instagram" class="size-8" />
-      </Motion>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)',
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)',
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.5,
-        }"
-      >
-        <UIcon name="i-simple-icons-github" class="size-8" />
+        <ULink :to="social.link" target="_blank">
+          <UIcon :name="social.icon" class="size-8" />
+        </ULink>
       </Motion>
     </div>
     <Vue3Marquee class="mt-16" :pause-on-hover="true">
       <Motion
-        v-for="(image, index) in images"
+        v-for="(image, index) in props.page.hero.images"
         :key="image.src"
         :initial="{
           scale: 1.1,
@@ -146,34 +115,12 @@
 </template>
 
 <script setup lang="ts">
+import type { IndexCollectionItem } from "@nuxt/content";
 import { Vue3Marquee } from "vue3-marquee";
 
-const images = [
-  {
-    label: "HTML",
-    src: "/images/html.png",
-  },
-  {
-    label: "CSS",
-    src: "/images/css.png",
-  },
-  {
-    label: "Javascript",
-    src: "/images/javascript.png",
-  },
-  {
-    label: "Typescript",
-    src: "/images/typescript.png",
-  },
-  {
-    label: "ReactJS",
-    src: "/images/reactjs.png",
-  },
-  {
-    label: "VueJS",
-    src: "/images/vuejs.png",
-  },
-];
+const props = defineProps<{
+  page: IndexCollectionItem;
+}>();
 </script>
 
 <style scoped lang="scss">

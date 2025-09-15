@@ -1,25 +1,24 @@
 <template>
   <UContainer class="mx-auto">
-    <LandingHero />
-    <LandingExperience />
+    <LandingHero :page="page!" />
+    <LandingExperience :page="page!" />
+    <LandingProjects />
     <LandingTestimonials />
-    <LandingLatestArticles />
   </UContainer>
 </template>
 
 <script setup lang="ts">
-useSeoMeta({
-  title: "Taylor Do - Frontend Developer",
-  description: `
-    Welcome to my portfolio! I'm Taylor Do, a frontend developer based in Vietnam. I specialize in creating user-centered digital experiences that are both beautiful and functional
-  `,
-  ogTitle: "Taylor Do - Frontend Developer",
-  ogDescription: `
-    Welcome to my portfolio! I'm Taylor Do, a frontend developer based in Vietnam. I specialize in creating user-centered digital experiences that are both beautiful and functional
-  `,
-  ogImage: "/images/family.png",
-  twitterImage: "/images/family.png",
+const { data: page } = await useAsyncData("index", () => {
+  return queryCollection("index").first();
 });
+
+if (!page.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page not found",
+    fatal: true,
+  });
+}
 </script>
 
 <style scoped></style>

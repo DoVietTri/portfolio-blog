@@ -1,8 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      gaId: process.env.NUXT_PUBLIC_GA_ID,
+    },
+  },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+  typescript: {
+    typeCheck: true,
+  },
 
   modules: [
     "@nuxt/eslint",
@@ -10,6 +18,7 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxt/ui",
     "motion-v/nuxt",
+    "@nuxt/content",
   ],
 
   app: {

@@ -17,19 +17,19 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 const items = [
   {
     label: "Home",
-    to: "/",
+    to: "#hero",
+  },
+  {
+    label: "Experiences",
+    to: "#experiences",
   },
   {
     label: "Projects",
-    to: "projects",
+    to: "#projects",
   },
   {
-    label: "Blog",
-    to: "blog",
-  },
-  {
-    label: "Contact",
-    to: "contact",
+    label: "Testimonials",
+    to: "#testimonials",
   },
 ] satisfies NavigationMenuItem[];
 </script>

@@ -1,0 +1,98 @@
+{
+  "hero": {
+    "title": "Hey...! I'm Taylor Do, a Frontend Developer",
+    "description": "Continuously improving and developing personal strengths. Creating high-quality products that meet user needs. Participating and working in a professional and challenging team environment.",
+    "socials": [
+      {
+        "label": "facebook",
+        "icon": "i-simple-icons-facebook",
+        "link": "https://www.facebook.com/tri.doviet.3"
+      },
+      {
+        "label": "github",
+        "icon": "i-simple-icons-github",
+        "link": "https://github.com/DoVietTri"
+      }
+    ],
+    "images": [
+      {
+        "label": "HTML",
+        "src": "/images/html.png"
+      },
+      {
+        "label": "CSS",
+        "src": "/images/css.png"
+      },
+      {
+        "label": "Javascript",
+        "src": "/images/javascript.png"
+      },
+      {
+        "label": "Typescript",
+        "src": "/images/typescript.png"
+      },
+      {
+        "label": "ReactJS",
+        "src": "/images/reactjs.png"
+      },
+      {
+        "label": "VueJS",
+        "src": "/images/vuejs.png"
+      }
+    ]
+  },
+  "about": {
+    "description": "I'm a Frontend Developer passionate about building modern, intuitive web interfaces and optimizing user experiences. I constantly explore and learn new technologies to deliver high-quality products while focusing on creativity and efficiency in every project."
+  },
+  "companies": [
+    {
+      "name": "Sotatek JSC",
+      "link": "https://www.sotatek.com",
+      "addClass": "text-blue-500",
+      "date": "04/2023 - Present",
+      "role": "Fullstack Developer"
+    },
+    {
+      "name": "HBLab JSC",
+      "link": "https://hblab.vn",
+      "addClass": "text-yellow-500",
+      "date": "01/2021 - 04/2023",
+      "role": "Frontend Developer"
+    },
+    {
+      "name": "Co-well Asia",
+      "link": "https://co-well.vn",
+      "addClass": "text-green-500",
+      "date": "07/2020 - 10/2020",
+      "role": "Internship"
+    },
+    {
+      "name": "HUST",
+      "link": "https://hust.edu.vn",
+      "addClass": "text-red-500",
+      "date": "09/2017 - 09/2021",
+      "role": "Student"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Ltra",
+      "description": "Build a livestream system that supports both playing baccarat and streaming simultaneously.",
+      "client": "Japan",
+      "image": "/images/project.png",
+      "techStacks": [
+        {
+          "label": "ReactJS",
+          "icon": "/icons/reactjs.png",
+          "link": "https://react.dev"
+        },
+         {
+          "label": "Mui UI",
+          "icon": "/icons/mui.png",
+          "link": "https://mui.com/material-ui"
+        }
+      ]
+    }
+  ]
+}
